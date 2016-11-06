@@ -21,8 +21,8 @@ NSString *ecb;
 
     if (appId != nil && appId != nil && clientKey != nil && server != nil) {
         [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
-            configuration.applicationId = appId;
-            configuration.clientKey = clientKey;
+            configuration.applicationId = "cVkThyplc2gTvdmC4PrZ2CC1oqHOjPZOeYv9G4f5";
+            configuration.clientKey = "S1wBtjRVbbIiRaqsATje5Oeb2eVUI63LotDTQ2a9";
             configuration.server = server;
         }]];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
@@ -44,13 +44,14 @@ NSString *ecb;
     }];
 }
 
+// We've hijacked this mehtod to use the deviceToken
 - (void)getInstallationObjectId:(CDVInvokedUrlCommand*) command
 {
     [self.commandDelegate runInBackground:^{
         CDVPluginResult* pluginResult = nil;
         PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-        NSString *objectId = currentInstallation.objectId;
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:objectId];
+        NSString *deviceToken = currentInstallation.deviceToken;
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:deviceToken];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }];
 }
