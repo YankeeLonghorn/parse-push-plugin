@@ -21,8 +21,8 @@ NSString *ecb;
 
     if (appId != nil && appId != nil && clientKey != nil && server != nil) {
         [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
-            configuration.applicationId = "cVkThyplc2gTvdmC4PrZ2CC1oqHOjPZOeYv9G4f5";
-            configuration.clientKey = "S1wBtjRVbbIiRaqsATje5Oeb2eVUI63LotDTQ2a9";
+            configuration.applicationId = @"cVkThyplc2gTvdmC4PrZ2CC1oqHOjPZOeYv9G4f5";
+            configuration.clientKey = @"S1wBtjRVbbIiRaqsATje5Oeb2eVUI63LotDTQ2a9";
             configuration.server = server;
         }]];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
